@@ -185,7 +185,7 @@ const options = {
   }
 };
 
-GSheetProcessor(
+gsheetProcessor(
   options,
   results => {
     const table = document.createElement('table');
