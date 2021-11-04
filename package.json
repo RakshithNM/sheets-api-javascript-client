@@ -22,10 +22,10 @@
   },
   "scripts": {
     "clean": "del dist/*",
-    "build": "npx babel src --out-dir \"build\"",
+    "build": "npx babel demo --out-dir \"build\"",
     "production": "parcel build ./build/index.js",
     "package": "yarn clean && yarn build && yarn production",
-    "start": "parcel ./demo/index.html --open --no-cache",
+    "start": "parcel ./index.html --open --no-cache",
     "test": "echo \"No test specified\""
   },
   "browserslist": [
