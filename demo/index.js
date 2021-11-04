@@ -1,3 +1,5 @@
+import config from './config.json'
+
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
     const sheetNameStr = sheetName && sheetName !== '' ? encodeURIComponent(sheetName) : `Sheet${sheetNumber}`
@@ -168,7 +170,7 @@ const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1frbcE_gbAxy_tnjC4Z
 
 // test sheet id, Sheets API key, and valid auth scope
 const demoSheetId = '1frbcE_gbAxy_tnjC4ZbMHq7DcZojXKH9Zv51xmXnA_4';
-const apiKey = process.env.SHEETS_API_KEY;
+const apiKey = config.SHEETS_API_KEY;
 
 const options = {
   apiKey: apiKey,
