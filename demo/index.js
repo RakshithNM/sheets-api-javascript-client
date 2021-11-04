@@ -1,5 +1,3 @@
-import fetch from 'cross-fetch';
-
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
     const sheetNameStr = sheetName && sheetName !== '' ? encodeURIComponent(sheetName) : `Sheet${sheetNumber}`
