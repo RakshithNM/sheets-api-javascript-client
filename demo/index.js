@@ -1,4 +1,4 @@
-import config from './config.json'
+import config from './config.js'
 
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
