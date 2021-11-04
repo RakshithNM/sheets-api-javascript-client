@@ -163,31 +163,6 @@ const gsheetProcessor = function (options, callback, onError) {
     .catch(err => onError(err.message));
 };
 
-function matchValues(valToMatch, valToMatchAgainst, matchingType) {
-  try {
-    if (typeof valToMatch != 'undefined') {
-      valToMatch = valToMatch.toLowerCase().trim();
-      valToMatchAgainst = valToMatchAgainst.toLowerCase().trim();
-
-      if (matchingType === 'strict') {
-        return valToMatch === valToMatchAgainst;
-      }
-
-      if (matchingType === 'loose') {
-        return (
-          valToMatch.includes(valToMatchAgainst) ||
-          valToMatch == valToMatchAgainst
-        );
-      }
-    }
-  } catch (e) {
-    console.log(`error in matchValues: ${e.message}`);
-    return false;
-  }
-
-  return false;
-}
-
 function filterResults(resultsToFilter, filter, options) {
   let filteredData = [];
 
