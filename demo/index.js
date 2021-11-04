@@ -168,7 +168,7 @@ const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1frbcE_gbAxy_tnjC4Z
 
 // test sheet id, Sheets API key, and valid auth scope
 const demoSheetId = '1frbcE_gbAxy_tnjC4ZbMHq7DcZojXKH9Zv51xmXnA_4';
-const apiKey = config.TOKEN;
+const apiKey = TOKEN;
 
 const options = {
   apiKey: apiKey,
