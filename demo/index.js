@@ -151,7 +151,7 @@ const gsheetProcessor = function (options, callback, onError) {
     throw new Error('Missing Sheets API key');
   }
 
-  return GSheetsapi({
+  return gSheetsapi({
     apiKey,
     sheetId,
     sheetName,
