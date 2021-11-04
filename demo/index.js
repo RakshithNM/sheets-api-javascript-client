@@ -22,7 +22,6 @@ const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   }
 };
 
-export default gsheetsAPI;
 function matchValues(valToMatch, valToMatchAgainst, matchingType) {
   try {
     if (typeof valToMatch != 'undefined') {
