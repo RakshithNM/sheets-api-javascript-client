@@ -1,3 +1,5 @@
+const TOKEN = 'AIzaSyCsdyXlykD-Ss4vC3HfecoySx-YNLAbhLY';
+
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
     const sheetNameStr = sheetName && sheetName !== '' ? encodeURIComponent(sheetName) : `Sheet${sheetNumber}`
@@ -193,8 +195,6 @@ gsheetProcessor(
     const headerRow = header.insertRow(0);
     const tbody = table.createTBody();
 
-    console.log(results);
-
     // First, create a header row
     Object.getOwnPropertyNames(results[0]).forEach(colName => {
       const cell = headerRow.insertCell(-1);
@@ -202,18 +202,46 @@ gsheetProcessor(
     });
 
     // Next, fill the rest of the rows with the lovely data
-    results.forEach(result => {
+    results.forEach((result, index) => {
       const row = tbody.insertRow(-1);
+      row.id = index;
 
       Object.keys(result).forEach(key => {
         const cell = row.insertCell(-1);
         cell.innerHTML = result[key];
       });
+
+      if(index !== 0) {
+        row.innerHTML = row.innerHTML + `<button id="button-${row.id}">print</button>`;
+      }
     });
+
 
     const main = document.querySelector('#output');
     main.innerHTML = '';
     main.append(table);
+
+    for(let i = results.length - 1; i > 0; i--) {
+      const button = document.getElementById(`button-${i}`);
+      button.addEventListener('click', (e) => {
+        console.log(JSON.stringify(results[Number(e.target.id.split('-')[1])]));
+        const fetchUrl = 'http://localhost:3000';
+        const fetchOptions = {
+          method: 'POST',
+          body: JSON.stringify({
+            "data": results[Number(e.target.id.split('-')[1])]
+          })
+        };
+        fetch(fetchUrl, fetchOptions)
+          .then((response) => response.blob())
+          .then((blob) => {
+            if(blob) {
+              const fileUrl = URL.createObjectURL(blob);
+              window.open(fileUrl);
+            }
+          })
+      });
+    }
   },
   error => {
     console.log('error from sheets API', error);
