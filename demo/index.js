@@ -191,14 +191,17 @@ gsheetProcessor(
   options,
   results => {
     const table = document.createElement('table');
+    table.className = "table table-striped";
     const header = table.createTHead();
     const headerRow = header.insertRow(0);
     const tbody = table.createTBody();
 
     // First, create a header row
     Object.getOwnPropertyNames(results[0]).forEach(colName => {
-      const cell = headerRow.insertCell(-1);
-      cell.innerHTML = colName;
+      if(colName !== "length") {
+        const cell = headerRow.insertCell(-1);
+        cell.innerHTML = colName;
+      }
     });
 
     // Next, fill the rest of the rows with the lovely data
@@ -209,6 +212,9 @@ gsheetProcessor(
       Object.keys(result).forEach(key => {
         const cell = row.insertCell(-1);
         cell.innerHTML = result[key];
+        if(index === 0) {
+          cell.style.fontWeight = "bold";
+        }
       });
 
       if(index !== 0) {
