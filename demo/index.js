@@ -241,7 +241,7 @@ gsheetProcessor(
           "brideAddress2": data[6],
           "brideAddress3": data[7],
         };
-        const fetchUrl = 'http://localhost:3000';
+        const fetchUrl = 'https://calm-river-94016.herokuapp.com';
         const fetchOptions = {
           method: 'POST',
           headers: {
