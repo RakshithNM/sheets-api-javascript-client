@@ -195,6 +195,9 @@ gsheetProcessor(
     const header = table.createTHead();
     const headerRow = header.insertRow(0);
     const tbody = table.createTBody();
+    const body = document.querySelector('body');
+    const loadingText = document.getElementById('loading');
+    loadingText.style.display = "none";
 
     // First, create a header row
     Object.getOwnPropertyNames(results[0]).forEach(colName => {
@@ -230,6 +233,7 @@ gsheetProcessor(
     for(let i = results.length - 1; i > 0; i--) {
       const button = document.getElementById(`button-${i}`);
       button.addEventListener('click', (e) => {
+        loadingText.style.display = "flex";
         const data = results[Number(e.target.id.split('-')[1])];
         const dataObj = {
           "groomName": data[0],
@@ -252,6 +256,7 @@ gsheetProcessor(
         fetch(fetchUrl, fetchOptions)
           .then((response) => response.blob())
           .then((blob) => {
+            loadingText.style.display = "none";
             if(blob) {
               const fileUrl = URL.createObjectURL(blob);
               window.open(fileUrl);
