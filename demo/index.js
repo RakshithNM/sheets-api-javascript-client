@@ -166,10 +166,10 @@ const gsheetProcessor = function (options, callback, onError) {
 };
 
 // test Sheet url
-const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1frbcE_gbAxy_tnjC4ZbMHq7DcZojXKH9Zv51xmXnA_4/edit#gid=0';
+const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1GgnO7wXDKSgLSadFveRHEsC149dbuu_c3Sg9wo1yMtE/edit#gid=168734557';
 
 // test sheet id, Sheets API key, and valid auth scope
-const demoSheetId = '1frbcE_gbAxy_tnjC4ZbMHq7DcZojXKH9Zv51xmXnA_4';
+const demoSheetId = '1GgnO7wXDKSgLSadFveRHEsC149dbuu_c3Sg9wo1yMtE';
 const apiKey = TOKEN;
 
 const options = {
@@ -195,7 +195,6 @@ gsheetProcessor(
     const header = table.createTHead();
     const headerRow = header.insertRow(0);
     const tbody = table.createTBody();
-    const body = document.querySelector('body');
     const loadingText = document.getElementById('loading');
     loadingText.style.display = "none";
 
