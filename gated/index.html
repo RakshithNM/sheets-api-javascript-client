@@ -11,10 +11,12 @@
     </div>
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      const btn = document.getElementById('btn');
-      if(btn.innerText === "Log out") {
-        window.location.href = "/list/index.html";
-      }
+      window.onload = () => {
+        const btn = document.getElementById('btn');
+        if(btn.innerText === "Log out") {
+          window.location.href = "/list/index.html";
+        }
+      };
     </script>
   </body>
 </html>
