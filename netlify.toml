@@ -12,7 +12,7 @@
   force = true
   conditions = {Role = ["member"]}
 [[redirects]]
-  from = "/gated/*"
+  from = "/gated/index.html"
   to = "/list/index.html"
   status = 200
   force = true
