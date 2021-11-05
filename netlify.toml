@@ -2,18 +2,12 @@
   functions = "./lambda"
 [[redirects]]
   from = "/list/index.html"
-  to = "/gated/"
+  to = "/gated/index.html"
   status = 404
   force = true
 [[redirects]]
-  from = "/list/*"
-  to = "/list/"
-  status = 200
-  force = true
-  conditions = {Role = ["member"]}
-[[redirects]]
-  from = "/gated/index.html"
-  to = "/list/"
+  from = "/list/index.html"
+  to = "/list/index.html"
   status = 200
   force = true
   conditions = {Role = ["member"]}
