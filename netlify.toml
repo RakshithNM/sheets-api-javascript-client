@@ -11,9 +11,3 @@
   status = 200
   force = true
   conditions = {Role = ["member"]}
-[[redirects]]
-  from = "/gated/index.html"
-  to = "/list/index.html"
-  status = 200
-  force = true
-  conditions = {Role = ["member"]}
