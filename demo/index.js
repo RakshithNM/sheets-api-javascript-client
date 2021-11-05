@@ -224,13 +224,24 @@ gsheetProcessor(
     for(let i = results.length - 1; i > 0; i--) {
       const button = document.getElementById(`button-${i}`);
       button.addEventListener('click', (e) => {
-        console.log(JSON.stringify(results[Number(e.target.id.split('-')[1])]));
+        const data = results[Number(e.target.id.split('-')[1])];
+        const dataObj = {
+          "groomName": data[0],
+          "groomAddress1": data[1],
+          "groomAddress2": data[2],
+          "groomAddress3": data[3],
+          "brideName": data[4],
+          "brideAddress1": data[5],
+          "brideAddress2": data[6],
+          "brideAddress3": data[7],
+        };
         const fetchUrl = 'http://localhost:3000';
         const fetchOptions = {
           method: 'POST',
-          body: JSON.stringify({
-            "data": results[Number(e.target.id.split('-')[1])]
-          })
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: JSON.stringify(dataObj)
         };
         fetch(fetchUrl, fetchOptions)
           .then((response) => response.blob())
