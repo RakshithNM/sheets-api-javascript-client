@@ -1,5 +1,3 @@
-//const TOKEN = 'AIzaSyCPWw14a1DsMvVfaGX02bSP-NDZG5ThDoI';
-
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
     const sheetNameStr = sheetName && sheetName !== '' ? encodeURIComponent(sheetName) : `Sheet${sheetNumber}`
