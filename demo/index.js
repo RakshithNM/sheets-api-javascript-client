@@ -1,4 +1,4 @@
-//const TOKEN = 'AIzaSyCsdyXlykD-Ss4vC3HfecoySx-YNLAbhLY';
+const TOKEN = 'AIzaSyCPWw14a1DsMvVfaGX02bSP-NDZG5ThDoI';
 
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
@@ -247,7 +247,7 @@ gsheetProcessor(
           "brideAddress2": data[7],
           "brideAddress3": data[8],
         };
-        const fetchUrl = 'https://calm-river-94016.herokuapp.com';
+        const fetchUrl = 'http://localhost:3000';
         const fetchOptions = {
           method: 'POST',
           headers: {
