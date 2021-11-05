@@ -212,10 +212,13 @@ gsheetProcessor(
       row.id = index;
 
       Object.keys(result).forEach(key => {
-        const cell = row.insertCell(-1);
-        cell.innerHTML = result[key];
-        if(index === 0) {
-          cell.style.fontWeight = "bold";
+        let cell;
+        if(key !== '0') {
+          cell = row.insertCell(-1);
+          cell.innerHTML = result[key];
+          if(index === 0) {
+            cell.style.fontWeight = "bold";
+          }
         }
       });
 
@@ -235,14 +238,14 @@ gsheetProcessor(
         loadingText.style.display = "flex";
         const data = results[Number(e.target.id.split('-')[1])];
         const dataObj = {
-          "groomName": data[0],
-          "groomAddress1": data[1],
-          "groomAddress2": data[2],
-          "groomAddress3": data[3],
-          "brideName": data[4],
-          "brideAddress1": data[5],
-          "brideAddress2": data[6],
-          "brideAddress3": data[7],
+          "groomName": data[1],
+          "groomAddress1": data[2],
+          "groomAddress2": data[3],
+          "groomAddress3": data[4],
+          "brideName": data[5],
+          "brideAddress1": data[6],
+          "brideAddress2": data[7],
+          "brideAddress3": data[8],
         };
         const fetchUrl = 'https://calm-river-94016.herokuapp.com';
         const fetchOptions = {
