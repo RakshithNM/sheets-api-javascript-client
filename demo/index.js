@@ -1,4 +1,4 @@
-const TOKEN = 'AIzaSyCsdyXlykD-Ss4vC3HfecoySx-YNLAbhLY';
+//const TOKEN = 'AIzaSyCsdyXlykD-Ss4vC3HfecoySx-YNLAbhLY';
 
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
