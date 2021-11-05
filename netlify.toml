@@ -1,13 +1,2 @@
 [build]
   functions = "./lambda"
-[[redirects]]
-  from = "/list/index.html"
-  to = "/gated/index.html"
-  status = 404
-  force = true
-[[redirects]]
-  from = "/list/index.html"
-  to = "/list/index.html"
-  status = 200
-  force = true
-  conditions = {Role = ["member"]}
