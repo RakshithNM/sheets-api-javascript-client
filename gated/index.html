@@ -11,11 +11,9 @@
     </div>
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      const table = document.querySelector('table');
       const login = document.getElementById('login');
-      if(login.style.display !== "none") {
-        table.style.pointerEvents = "none";
-        table.style.filter = "grayscale(1)";
+      if(login.innerText !== "Log out") {
+        window.location.href = "/list/index.html";
       }
     </script>
   </body>
