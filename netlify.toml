@@ -1,12 +1,12 @@
 [build]
   functions = "./lambda"
 [[redirects]]
-  from = "/gated/index.html"
+  from = "/list/index.html"
   to = "/gated/index.html"
   status = 404
   force = true
 [[redirects]]
-  from = "/gated/index.html"
+  from = "/list/*"
   to = "/list/index.html"
   status = 200
   force = true
