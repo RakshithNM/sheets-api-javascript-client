@@ -8,13 +8,16 @@
   <body>
     <div id="login" style="display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <div id="btn" class="btn btn-danger" data-netlify-identity-button></div>
+      <p id="msg" style="display: none">Please refresh the browser if you see the "Log out" button and nothing else</p>
     </div>
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       window.onload = () => {
         const btn = document.getElementById('btn');
+        const msg = document.getElementById('msg');
         if(btn.innerText === "Log out") {
           window.location.href = "/list/index.html";
+          msg.style.display = "block"; 
         }
       };
     </script>
