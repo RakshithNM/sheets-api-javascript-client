@@ -236,6 +236,7 @@ gsheetProcessor(
 
 
     const main = document.querySelector('#output');
+    main.className = "table-responsive";
     main.innerHTML = '';
     main.append(table);
 
