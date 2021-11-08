@@ -206,12 +206,12 @@ gsheetProcessor(
     const date = document.getElementById('date');
 
     // First, create a header row
-    Object.getOwnPropertyNames(results[0]).forEach(colName => {
-      if(colName !== "length") {
-        const cell = headerRow.insertCell(-1);
-        cell.innerHTML = colName;
-      }
-    });
+    //Object.getOwnPropertyNames(results[0]).forEach(colName => {
+      //if(colName !== "length") {
+        //const cell = headerRow.insertCell(-1);
+        //cell.innerHTML = colName;
+      //}
+    //});
 
     // Next, fill the rest of the rows with the lovely data
     results.forEach((result, index) => {
@@ -230,7 +230,7 @@ gsheetProcessor(
       });
 
       if(index !== 0) {
-        row.innerHTML = row.innerHTML + `<button id="button-${row.id}">print</button>`;
+        row.insertAdjacentHTML('beforeend', `<td><button id="button-${row.id}">print</button></td>`);
       }
     });
 
