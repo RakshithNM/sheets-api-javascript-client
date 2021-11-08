@@ -197,7 +197,7 @@ gsheetProcessor(
   options,
   results => {
     const table = document.createElement('table');
-    table.className = "table table-striped";
+    table.className = "table table-striped table-bordered";
     const header = table.createTHead();
     const headerRow = header.insertRow(0);
     const tbody = table.createTBody();
