@@ -205,14 +205,6 @@ gsheetProcessor(
     loadingText.style.display = "none";
     const date = document.getElementById('date');
 
-    // First, create a header row
-    //Object.getOwnPropertyNames(results[0]).forEach(colName => {
-      //if(colName !== "length") {
-        //const cell = headerRow.insertCell(-1);
-        //cell.innerHTML = colName;
-      //}
-    //});
-
     // Next, fill the rest of the rows with the lovely data
     results.forEach((result, index) => {
       const row = tbody.insertRow(-1);
@@ -244,6 +236,7 @@ gsheetProcessor(
       const button = document.getElementById(`button-${i}`);
       button.addEventListener('click', (e) => {
         loadingText.style.display = "flex";
+        document.body.style.pointerEvents = "none";
         const data = results[Number(e.target.id.split('-')[1])];
         const dataObj = {
           "groomName": data[1],
@@ -269,6 +262,7 @@ gsheetProcessor(
           .then((response) => response.blob())
           .then((blob) => {
             loadingText.style.display = "none";
+            document.body.style.pointerEvents = "auto"
             if(blob) {
               const fileUrl = URL.createObjectURL(blob);
               window.open(fileUrl);
