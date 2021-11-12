@@ -190,9 +190,16 @@ const formatTodaysDate = () => {
   const year = now.getFullYear();
   const month = now.getMonth() + 1;
   const day = now.getDate();
-  return [year, month.toString().padStart(2, '0'), day.toString().padStart(2, '0')].join('-');
+  return [day.toString().padStart(2, '0'), month.toString().padStart(2, '0'),  year].join('-');
 };
 
+const getTodaysDateFrom = (inTimestamp) => {
+  const date = new Date(inTimestamp);
+  if(date) {
+    return [date.getDate().toString().padStart(2, '0'), (date.getMonth() + 1).toString().padStart(2, '0'), date.getFullYear()].join('-');
+  }
+  formatTodaysDate();
+};
 gsheetProcessor(
   options,
   results => {
@@ -248,7 +255,7 @@ gsheetProcessor(
           "brideAddress2": data[7],
           "brideAddress3": data[8],
           "registerNumber": data[9],
-          "date": (date.value !== "" ? date.value : formatTodaysDate()),
+          "date": (Number.isNaN(date.valueAsNumber) ? formatTodaysDate() : getTodaysDateFrom(date.valueAsNumber)),
         };
         const fetchUrl = 'https://calm-river-94016.herokuapp.com';
         const fetchOptions = {
