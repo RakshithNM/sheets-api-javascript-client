@@ -248,11 +248,11 @@ gsheetProcessor(
         const data = results[Number(e.target.id.split('-')[1])];
         const dataObj = {
           "groomName": data[1],
-          "groomAddress1": data[2],
+          "groomAddress1": `S/O ${data[2]}`,
           "groomAddress2": data[3],
           "groomAddress3": data[4],
           "brideName": data[5],
-          "brideAddress1": data[6],
+          "brideAddress1": `D/O ${data[6]}`,
           "brideAddress2": data[7],
           "brideAddress3": data[8],
           "registerNumber": data[9],
