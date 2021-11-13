@@ -211,6 +211,7 @@ gsheetProcessor(
     const loadingText = document.getElementById('loading');
     loadingText.style.display = "none";
     const date = document.getElementById('date');
+    const issueDate = document.getElementById('issuedate');
 
     // Next, fill the rest of the rows with the lovely data
     results.forEach((result, index) => {
@@ -256,6 +257,7 @@ gsheetProcessor(
           "brideAddress3": data[8],
           "registerNumber": data[9],
           "date": (Number.isNaN(date.valueAsNumber) ? formatTodaysDate() : getTodaysDateFrom(date.valueAsNumber)),
+          "issueDate": (Number.isNaN(issueDate.valueAsNumber) ? formatTodaysDate() : getTodaysDateFrom(issueDate.valueAsNumber))
         };
         const fetchUrl = 'https://calm-river-94016.herokuapp.com';
         const fetchOptions = {
